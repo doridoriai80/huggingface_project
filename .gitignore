@@ -1,0 +1,53 @@
+# FirstAI 디렉토리 무시
+FirstAI/
+
+# Python 관련 파일들
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 가상환경
+venv/
+env/
+ENV/
+firstai_env/
+
+# IDE 관련
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS 관련
+.DS_Store
+Thumbs.db
+
+# 로그 파일들
+*.log
+logs/
+
+# 모델 저장 디렉토리
+results/
+models/
+
+# 임시 파일들
+*.tmp
+*.temp
