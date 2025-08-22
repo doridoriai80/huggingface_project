@@ -1,20 +1,12 @@
-from transformers import MarianMTModel, MarianTokenizer
+from transformers import pipeline
 
-# 한국어-영어 번역 모델 설정
-model_name = "Helsinki-NLP/opus-mt-ko-en"
-tokenizer = MarianTokenizer.from_pretrained(model_name)
-model = MarianMTModel.from_pretrained(model_name)
+# 한국어-영어 번역 파이프라인 생성 (SentencePiece 라이브러리 불필요)
+translator = pipeline("translation", model="Helsinki-NLP/opus-mt-ko-en")
 
 def translate_korean_to_english(korean_text):
-    # 토큰화
-    tokens = tokenizer(korean_text, return_tensors="pt", padding=True)
-    
     # 번역 실행
-    translated = model.generate(**tokens, max_length=512)
-    
-    # 결과 디코딩
-    english_text = tokenizer.decode(translated[0], skip_special_tokens=True)
-    return english_text
+    result = translator(korean_text)
+    return result[0]['translation_text']
 
 # 번역 테스트
 korean_sentences = [
